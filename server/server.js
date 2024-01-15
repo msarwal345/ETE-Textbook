@@ -1,0 +1,24 @@
+const express = require("express");
+const cors = require("cors");
+const multer = require("multer");
+const collection = require('./model/model');
+const controllers = require('./controller/controller');
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+// Multer configuration for handling file uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+
+app.use("/", controllers);
+
+app.post('/upload', upload.single('file'), controllers);
+
+
+app.listen(8000, () => {
+    console.log("port connected");
+});
