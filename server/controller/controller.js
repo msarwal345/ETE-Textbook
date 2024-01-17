@@ -1,4 +1,3 @@
-// controllers.js
 const express = require("express");
 // const { User, Textbook } = require('../model/model');
 const { User, Textbook, Comment } = require('../model/model');
@@ -48,7 +47,6 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// module.exports = router;
 
 router.post("/upload", upload.single("file"), async (req, res) => {
   try {
@@ -113,52 +111,21 @@ router.get('/textbooks/download/:id', async (req, res) => {
   }
 });
 
-// router.post('/textbooks/comment', async (req, res) => {
-//   const { textbookId, text } = req.body;
 
-//   try {
-//     const comment = new Comment({ textbookId, text });
-//     await comment.save();
-//     res.json({ message: 'Comment added successfully!' });
-//   } catch (error) {
-//     console.error('Error adding comment:', error.message);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
-
-// router.get('/textbooks/comments/:textbookId', async (req, res) => {
-//   const { textbookId } = req.params;
-
-//   try {
-//     const comments = await Comment.find({ textbookId });
-//     res.json(comments);
-//   } catch (error) {
-//     console.error('Error fetching comments:', error.message);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
-router.post('/textbooks/comment', async (req, res) => {
-  const { textbookId, text, username } = req.body; // Include username in the request body
+router.delete('/textbooks/:id', async (req, res) => {
+  const { id } = req.params;
 
   try {
-    const comment = new Comment({ textbookId, text, username });
-    await comment.save();
-    res.json({ message: 'Comment added successfully!' });
-  } catch (error) {
-    console.error('Error adding comment:', error.message);
-    res.status(500).json({ error: error.message });
-  }
-});
+    const deletedTextbook = await Textbook.findByIdAndDelete(id);
 
-router.get('/textbooks/comments/:textbookId', async (req, res) => {
-  const { textbookId } = req.params;
+    if (!deletedTextbook) {
+      return res.status(404).json({ message: 'Textbook not found' });
+    }
 
-  try {
-    const comments = await Comment.find({ textbookId });
-    res.json(comments);
+    res.json({ message: 'Textbook deleted successfully' });
   } catch (error) {
-    console.error('Error fetching comments:', error.message);
-    res.status(500).json({ error: error.message });
+    console.error('Error deleting textbook:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

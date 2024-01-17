@@ -7,7 +7,7 @@ mongoose.connect(uri)
   .then(() => console.log('Database Connected'))
   .catch(() => console.log('Error'));
 
-// Schema for storing textbook information
+  
 const textbookSchema = new mongoose.Schema({
   filename: { type: String, required: true },
   category: { type: String, required: true },
@@ -23,9 +23,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-
-
-// models/model.js
 const commentSchema = new mongoose.Schema({
   textbookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Textbook', required: true },
   text: { type: String, required: true },
@@ -35,11 +32,3 @@ const commentSchema = new mongoose.Schema({
 const Comment = mongoose.model('Comment', commentSchema);
 
 module.exports = { Textbook, User, Comment };
-
-
-
-module.exports = { Textbook, User};
-
-
-
-

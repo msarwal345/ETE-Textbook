@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Login.css'; // Import your CSS file
+import './Login.css'; 
+import NavScrollExample from './Navbar/Navbar';
 
 export default function Login() {
   const history = useNavigate();
@@ -17,7 +18,7 @@ export default function Login() {
       });
 
       if (res.data === 'exist') {
-        history('/home', { state: { id: email } });
+        history('/', { state: { id: email } });
       } else if (res.data === 'notexist') {
         alert('User has not signed up');
       }
@@ -28,6 +29,8 @@ export default function Login() {
   }
 
   return (
+    <>
+    <NavScrollExample/>
     <div className="login-container">
       <h1>Login</h1>
       <form>
@@ -52,5 +55,6 @@ export default function Login() {
         </Link>
       </form>
     </div>
+    </>
   );
 }

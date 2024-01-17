@@ -1,60 +1,102 @@
-/* TextbookList.css */
+/* TextBooklist.css */
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .filter-section {
-    margin-bottom: 20px;
-  }
-  
-  .label {
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .input {
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .button {
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .textbook {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .textbook-title {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
-  .textbook-buttons {
-    margin-top: 10px;
-  }
-  
-  .textbook-buttons button {
-    margin-right: 10px;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  /* Add more styles as needed */
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #1d1b1b; /* Dark text color */
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.input {
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #4caf50; /* Slightly less intense green color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  padding: 15px;
+  background-color: #4caf50; /* Slightly less intense green color */
+  color: #fff; /* White text color */
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.card-buttons button {
+  padding: 8px 12px;
+  background-color: #4caf50; /* Slightly less intense green color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 14px;
+}
+
+.card-buttons button:hover {
+  background-color: #3bb345; /* Darker green on hover */
+}

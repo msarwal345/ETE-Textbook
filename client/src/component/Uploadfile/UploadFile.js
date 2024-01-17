@@ -1,7 +1,8 @@
-// src/UploadTextbook.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './UploadTextbook.css'; // Import the CSS file
+import './UploadTextbook.css'; 
+import NavScrollExample from '../Navbar/Navbar';
+
 
 const UploadTextbook = () => {
   const [file, setFile] = useState(null);
@@ -42,6 +43,8 @@ const UploadTextbook = () => {
   };
 
   return (
+    <>
+    <NavScrollExample/>
     <div className="upload-container">
       <h2>Upload Textbook</h2>
       
@@ -57,7 +60,16 @@ const UploadTextbook = () => {
       <button className="upload-button" onClick={handleUpload}>Upload</button>
 
       {uploadResult && <div className="upload-result">{uploadResult}</div>}
+
+      <p>
+        Don't have a PDF file? You can create one using an online tool like{' '}
+        <a href="https://www.ilovepdf.com/" target="_blank" rel="noopener noreferrer">
+           PDF Tool
+        </a>
+      </p>
     </div>
+    {/* <Footer/> */}
+    </>
   );
 };
 

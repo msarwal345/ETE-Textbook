@@ -1,0 +1,29 @@
+/* HeroSection.css */
+
+.hero-section {
+    background: url('https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?w=996&t=st=1705335010~exp=1705335610~hmac=76cf80549c9da101549c5da958abc5ad9fa09ddd3ad1ed13353b78c9dffbc8f1') center/cover no-repeat;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 150px 0; /* Adjust padding as needed */
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section .btn {
+    background-color: #1db13f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+  
+  #id1{
+    background-color: #fff;
+  }

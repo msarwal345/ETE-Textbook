@@ -1,8 +1,6 @@
-// TextbookList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CommentSection from '../CommentSect/CommentSect';
-import './TextBooklist.css'; // Import the CSS file
+import './TextBooklist.css'; 
 
 const TextbookList = () => {
   const [textbooks, setTextbooks] = useState([]);
@@ -12,6 +10,8 @@ const TextbookList = () => {
     fetchTextbooks();
   }, [category]);
 
+
+  
   const fetchTextbooks = async () => {
     try {
       let url = 'http://localhost:8000/textbooks';
@@ -55,9 +55,18 @@ const TextbookList = () => {
     }
   };
 
+  const deleteTextbook = async (textbookId) => {
+    try {
+      await axios.delete(`http://localhost:8000/textbooks/${textbookId}`);
+      fetchTextbooks(); // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting textbook:', error.message);
+    }
+  };
+
   return (
     <div className="container">
-      <h2>Textbooks</h2>
+      {/* <h2>Textbooks</h2> */}
       <div className="filter-section">
         <label className="label" htmlFor="category">Category:</label>
         <input
@@ -69,21 +78,25 @@ const TextbookList = () => {
         />
         <button className="button" onClick={fetchTextbooks}>Filter</button>
       </div>
-      {textbooks.map((textbook) => (
-        <div key={textbook._id} className="textbook">
-          <div className="textbook-title">
-            <strong>{textbook.filename}</strong> - {textbook.category}
-          </div>
-          {textbook.file && (
-            <div className="textbook-buttons">
-              <button onClick={() => displayPdf(new Uint8Array(textbook.file.data))}>Open PDF</button>
-              <button onClick={() => downloadPdf(textbook._id, textbook.filename)}>Download PDF</button>
+      <div className="card-container">
+        {textbooks.map((textbook) => (
+          <div key={textbook._id} className="card">
+            <div className="card-title">
+              <strong>{textbook.filename}</strong> - {textbook.category}
             </div>
-          )}
-        </div>
-      ))}
-      {/* <CommentSection textbookId={textbook._id} /> */}
+            {textbook.file && (
+              <div className="card-buttons">
+                <button onClick={() => displayPdf(new Uint8Array(textbook.file.data))}>Open PDF</button>
+                <button onClick={() => downloadPdf(textbook._id, textbook.filename)}>Download PDF</button>
+                <button onClick={() => deleteTextbook(textbook._id)}>Delete</button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      
       {/* <CommentSection /> */}
+      {/* <Footer/> */}
     </div>
   );
 };
