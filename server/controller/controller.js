@@ -10,7 +10,9 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 
-router.get("/", (req, res) => {
+router.use("/", (req, res,next) => {
+    console.log(req.path,req.method);
+    next();
 });
 
 router.post("/", async (req, res) => {
