@@ -82,3 +82,14 @@ input {
   font-weight: bold;
   color: #4caf50; /* Match the button color for result text */
 }
+
+
+.photo{
+  width: 70%;
+  height: 70%;
+}
+
+.cnt{
+  margin-top:90px;
+  justify-content: space-around;
+}

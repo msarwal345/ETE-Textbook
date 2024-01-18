@@ -15,8 +15,7 @@ const TextbookList = () => {
   const fetchTextbooks = async () => {
     try {
       let url = 'http://localhost:8000/textbooks';
-
-      // Append category to the URL only if it is not empty
+      
       if (category) {
         url += `/${category}`;
       }

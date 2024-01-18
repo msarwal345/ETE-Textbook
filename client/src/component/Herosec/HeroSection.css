@@ -1,10 +1,11 @@
 /* HeroSection.css */
 
 .hero-section {
-    background: url('https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?w=996&t=st=1705335010~exp=1705335610~hmac=76cf80549c9da101549c5da958abc5ad9fa09ddd3ad1ed13353b78c9dffbc8f1') center/cover no-repeat;
+    /* background: url('https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?w=996&t=st=1705335010~exp=1705335610~hmac=76cf80549c9da101549c5da958abc5ad9fa09ddd3ad1ed13353b78c9dffbc8f1') center/cover no-repeat; */
+    /* background-image: url("Read.jpg"); */
     color: rgb(0, 0, 0);
     text-align: center;
-    padding: 150px 0; /* Adjust padding as needed */
+    padding: 150px 0; 
   }
   
   .hero-section h1 {
@@ -26,4 +27,5 @@
   
   #id1{
     background-color: #fff;
+    margin-bottom: 100px;
   }

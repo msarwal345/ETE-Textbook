@@ -45,7 +45,11 @@ const UploadTextbook = () => {
   return (
     <>
     <NavScrollExample/>
-    <div className="upload-container">
+    <div className='cnt'style={{display:"flex"}}>
+    <div className='photo' style={{width:"40%",marginLeft:"45px"}}>
+      <img src='open.jpg'   style={{width:"100%"}}/>
+    </div>
+    <div className="upload-container" style={{marginLeft:"205px"}}>
       <h2>Upload Textbook</h2>
       
       <label htmlFor="fileInput">Choose a PDF file:</label>
@@ -67,6 +71,7 @@ const UploadTextbook = () => {
            PDF Tool
         </a>
       </p>
+    </div>
     </div>
     {/* <Footer/> */}
     </>
