@@ -5,6 +5,9 @@ const collection = require('./model/model');
 const controllers = require('./controller/controller');
 const app = express();
 
+const path=require("path")
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -17,6 +20,13 @@ app.use("/", controllers);
 
 app.post('/upload', upload.single('file'), controllers);
 
+
+
+app.use(express.static(path.join(--dirname,'./client/build')))
+
+app.get('*',function(req,res){
+res.sendFile(path.join(--dirname,'./client/build'));
+})
 
 app.listen(8000, () => {
     console.log("port connected");
