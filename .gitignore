@@ -1,5 +1,5 @@
 #node_modules
-server/node_modules
+node_modules
 client/node_modules
 
 #env
@@ -7,5 +7,5 @@ server/.env
 client/.env
 
 #package
-server/package-lock.json
+package-lock.json
 client/package-lock.json
